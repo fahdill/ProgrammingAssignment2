@@ -1,5 +1,5 @@
 # Below are two functions that are used together to create,
-# solve inverse, and cache matrices.
+# make inverse, and cache inverse matrices.
 
 # The makeCacheMatrix() instantiates special object that
 # creates and store/caches matrix and its inverse.
@@ -98,8 +98,8 @@ cacheSolve = function(x, ...) {
 
 ###
 ###
+# TEST
 # making a clearer picture of how this works
-
 # empty makeCacheMatrix() object
 m = makeCacheMatrix()
 
