@@ -49,13 +49,12 @@ makeCacheMatrix = function(x = matrix()) {
 }
 
 
-
 # This cacheSolve() function checks for cached inverse matrix in makeCacheMatrix() objects.
 #
 # It takes an argument of above mentioned object type, tries to retrieve 
 # solved/inverse matrix, and if none is present, a solve() is performed on retrieved
 # original, non inverse matrix.
-# Then, the solved matrix is returned back to makeCacheMatrix() object, 
+# Then, the solved matrix is set back to makeCacheMatrix() object, 
 # consequently caching it. Also, the inverse matrix is returned.
 #
 # If inverse matrix is present (therefore cached) in makeCacheMatrix() object 
