@@ -49,6 +49,8 @@ makeCacheMatrix = function(x = matrix()) {
 }
 
 
+###
+###
 # This cacheSolve() function checks for cached inverse matrix in makeCacheMatrix() objects.
 #
 # It takes an argument of above mentioned object type, tries to retrieve 
@@ -92,3 +94,34 @@ cacheSolve = function(x, ...) {
     # and return it at last
     inv
 }
+
+
+###
+###
+# making a clearer picture of how this works
+
+# empty makeCacheMatrix() object
+m = makeCacheMatrix()
+
+# initial
+m$get()
+
+# set new matrix to m
+set.seed(237)
+mtx2 = matrix(sample(1:100,9),3,3)
+
+# show us the new matrix in m
+m$set(mtx2)
+m$get()
+
+# inverse should be clear, and if it is, gives NULL
+m$getInv()
+
+# check if there is inverse one by using cacheSolve()
+cacheSolve(m)
+
+# see if it is cached in m by calling it directly from m
+m$getInv()
+
+# try the cacheSolve() again now that there is inverse cached
+cacheSolve(m)
