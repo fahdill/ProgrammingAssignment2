@@ -27,8 +27,8 @@ makeCacheMatrix = function(x = matrix()) {
     get = function() {x}
     
     # make a way to set inverted matrix from outside
-    # basically, set matInverded to whatever you pass to this function 
-    # basically: 
+    # basically, set matInverded to whatever you pass to this function:
+    #
     # let m = makeMatrix(some_matrix)
     # its then possible to:
     # m$setInverse(solve(m$getMatrix()))  to set the inverse inside object
