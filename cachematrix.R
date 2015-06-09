@@ -1,4 +1,3 @@
-# NOT FINISHED
 # Below are two functions that are used together to create,
 # solve inverse, and cache matrices.
 
@@ -51,12 +50,46 @@ makeCacheMatrix = function(x = matrix()) {
 
 
 
+# This cacheSolve() function checks for cached inverse matrix in makeCacheMatrix() objects.
+#
+# It takes an argument of above mentioned object type, tries to retrieve 
+# solved/inverse matrix, and if none is present, a solve() is performed on retrieved
+# original, non inverse matrix.
+# Then, the solved matrix is returned back to makeCacheMatrix() object, 
+# consequently caching it. Also, the inverse matrix is returned.
+#
+# If inverse matrix is present (therefore cached) in makeCacheMatrix() object 
+# that is passed to this function cacheSolve(), inverse matrix is not calculated 
+# but retrieved from makeCacheMatrix() object and return as is thus making
+# less computational work.
 
-
-## TO DO
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
+cacheSolve = function(x, ...) {
+    
+    # get inverse matrix from x
+    # (or get whatever is in matInv in x)
+    inv = x$getInv()
+    
+    # if there IS cached inverse matrix do the following
+    if (!is.null(inv)) {
+        
+        # say that there is cached matrix, no need to calculate it
+        message("Retrieving cached inverse matrix...")
+        
+        # inverse is present in x 
+        # so all we need to do is to return that
+        return (inv)
+    }
+    
+    # if cached inverse matrix from x in NOT available do:
+    # retrieve unsolved (non-inverse) matrix from x
+    origMatrix = x$get()
+    
+    # make inverse one
+    inv = solve(origMatrix, ...)
+    
+    # set it to x thus making it cached for further use
+    x$setInv(inv)
+    
+    # and return it at last
+    inv
 }
-
