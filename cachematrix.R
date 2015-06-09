@@ -7,7 +7,7 @@
 # It can further interact with other functions communicating
 # about whether the inverse matrix has been already stored
 # (so it doesn't have to be recalculated) and if it is, 
-# enables a simple pull from makeCacheMatrix() properties/methods.
+# enables a simple pull of inverse matrix from makeCacheMatrix() properties/methods.
 
 makeCacheMatrix = function(x = matrix()) {
     
