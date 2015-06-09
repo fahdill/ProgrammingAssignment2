@@ -1,5 +1,4 @@
-# ASSIGNMENT 2, NOT FINISHED
-
+# NOT FINISHED
 # Below are two functions that are used together to create,
 # solve inverse, and cache matrices.
 
@@ -10,18 +9,16 @@
 # (so it doesn't have to be recalculated) and if it is, 
 # enables a simple pull from makeCacheMatrix() properties/methods.
 
-# initiate object with empty matrix, if no arguments are given
 makeCacheMatrix = function(x = matrix()) {
     
-    # empty placeholder for inverse matrix
+    # empty placeholder where inverse matrix will be stored
     matInv = NULL
     
-    # set new matrix from outside
+    # set new matrix from parent function(s)
     set = function(x2) {
         
-        # "<<-" enables the scope to be extended from outside to inside the function
-        # example: 
-        # let  m = makeCacheMatrix()  then  m$set(some_matrix) sets new matrix to m$
+        # "<<-" enables the scope to be extended from outside (parent) to inside the function
+        # which means that "x" can be set within "set()"
         x <<- x2
         
         # clear inverse matrix when assigning a new matrix to object
@@ -51,6 +48,7 @@ makeCacheMatrix = function(x = matrix()) {
         getInv = getInv
     )
 }
+
 
 
 
