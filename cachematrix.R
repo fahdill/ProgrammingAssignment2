@@ -27,8 +27,7 @@ makeCacheMatrix = function(x = matrix()) {
     get = function() {x}
     
     # make a way to set inverted matrix from outside
-    # basically, set matInverded to whatever you pass 
-    # to this function called from outside
+    # basically, set matInverded to whatever you pass to this function 
     # basically: 
     # let m = makeMatrix(some_matrix)
     # its then possible to:
@@ -53,6 +52,6 @@ makeCacheMatrix = function(x = matrix()) {
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    ## Return a matrix that is the inverse of 'x'
 }
 
