@@ -1,50 +1,57 @@
 # ASSIGNMENT 2, NOT FINISHED
-# caching matrix
 
-# makes an object that caches (eventually) a matrix and its inverse
-# packs itself with methods that enable it to do so
+# Below are two functions that are used together to create,
+# solve inverse, and cache matrices.
+
+# The makeCacheMatrix() instantiates special object that
+# creates and store/caches matrix and its inverse.
+# It can further interact with other functions communicating
+# about whether the inverse matrix has been already stored
+# (so it doesn't have to be recalculated) and if it is, 
+# enables a simple pull from makeCacheMatrix() properties/methods.
 
 # initiate object with empty matrix, if no arguments are given
 makeCacheMatrix = function(x = matrix()) {
     
     # empty placeholder for inverse matrix
-    matInverse = NULL
+    matInv = NULL
     
     # set new matrix from outside
     set = function(x2) {
         
         # "<<-" enables the scope to be extended from outside to inside the function
         # example: 
-        # let  m = makeMatrix()  then  m$setMatrix(some_matrix) sets new matrix to m
+        # let  m = makeCacheMatrix()  then  m$set(some_matrix) sets new matrix to m$
         x <<- x2
         
-        # clear inverted matrix when assigning a new matrix to object
-        matInverse <<- NULL
+        # clear inverse matrix when assigning a new matrix to object
+        matInv <<- NULL
         message ("New matrix made, cache cleared.")
     }
     
     # get matrix that is set
     get = function() {x}
     
-    # make a way to set inverted matrix from outside
-    # basically, set matInverded to whatever you pass to this function:
+    # make a way to set inverse matrix from outside
+    # basically, set matInv to whatever you pass to this function:
     #
-    # let m = makeMatrix(some_matrix)
+    # let m = makeCacheMatrix(some_matrix)
     # its then possible to:
-    # m$setInverse(solve(m$getMatrix()))  to set the inverse inside object
-    setInv = function(inv) {matInverse <<- inv}
+    # m$setInv(solve(m$get()))  to set the inverse inside object
+    setInv = function(inv) {matInv <<- inv}
     
     # a way to get inverted matrix now existing in this object
-    getInv = function() {matInverse}
+    getInv = function() {matInv}
     
     # return a list of properties/methods for this object
     list(
-        setMatrix = set, 
-        getMatrix = get,
-        setInverse = setInv,
-        getInverse = getInv
+        set = set, 
+        get = get,
+        setInv = setInv,
+        getInv = getInv
     )
 }
+
 
 
 
